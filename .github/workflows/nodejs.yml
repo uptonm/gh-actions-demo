@@ -40,7 +40,7 @@ jobs:
       # Push Coverage to CodeCov
     - name: Codecov
       uses: codecov/codecov-action@v1.0.0
-      if: runner.os == 'Ubuntu'
+      if: runner.os == 'ubuntu-latest'
       with:
         token: ${{secrets.CODECOV_TOKEN}} 
       env:
