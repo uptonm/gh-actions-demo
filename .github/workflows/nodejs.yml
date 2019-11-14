@@ -4,7 +4,11 @@ on: [push]
 
 jobs:
   build: 
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu_latest, macos_latest, windows_latest]
+        node_version: [8.x, 10.x, 12.x]
+    runs-on: ${{ matrix.os }}
     steps:
       # Checkout Codebase
     - uses: actions/checkout@v1
@@ -13,7 +17,7 @@ jobs:
     - name: Use Node.js 12.00
       uses: actions/setup-node@v1
       with:
-        node-version: 12.0
+        node-version: ${{ matrix.node_version }}
         
       # Get Cached Dependencies if Existing      
     - name: Get yarn cache
@@ -39,6 +43,7 @@ jobs:
 
       # Push Coverage to CodeCov
     - name: Codecov
+      if: ${{ runner.os }} == "Linux"
       uses: codecov/codecov-action@v1.0.0
       with:
         token: ${{secrets.CODECOV_TOKEN}} 
