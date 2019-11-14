@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v1
       
       # Set Node Version
-    - name: Use Node.js 12.00
+    - name: Use Node.js ${{ matrix.node_version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node_version }}
@@ -44,7 +44,7 @@ jobs:
       # Push Coverage to CodeCov
     - name: Codecov
       uses: codecov/codecov-action@v1.0.0
-      if: runner.os == 'Linux'
+      if: matrix.os == 'ubuntu-latest' && matrix.node_version == '12.x'
       with:
         token: ${{secrets.CODECOV_TOKEN}} 
       env:
