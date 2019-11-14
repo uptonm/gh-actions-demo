@@ -6,16 +6,21 @@ jobs:
   build: 
     runs-on: ubuntu-latest
     steps:
+      # Checkout Codebase
     - uses: actions/checkout@v1
+      
+      # Set Node Version
     - name: Use Node.js 12.00
       uses: actions/setup-node@v1
       with:
         node-version: 12.0
-      
+        
+      # Get Cached Dependencies if Existing      
     - name: Get yarn cache
       id: yarn-cache
       run: echo "::set-output name=dir::$(yarn cache dir)"
-
+      
+      # Caching of Dependencies
     - uses: actions/cache@v1
       with:
         path: ${{ steps.yarn-cache.outputs.dir }}
@@ -23,8 +28,16 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-yarn-
           
+      # Install Dependencies if not Cached
+    - name: Install Dependencies
+      if: steps.cache.outputs.cache-hit != 'true'
+      run: yarn install
+          
+      # Run Tests and Generate Coverate Report
     - name: Run tests
       run: yarn test:cov
+
+      # Push Coverage to CodeCov
     - name: Codecov
       uses: codecov/codecov-action@v1.0.0
       with:
