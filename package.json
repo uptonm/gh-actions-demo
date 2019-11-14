@@ -18,12 +18,10 @@
     "url": "https://github.com/uptonm/gh-actions-demo/issues"
   },
   "homepage": "https://github.com/uptonm/gh-actions-demo#readme",
-  "devDependencies": {
+  "dependencies": {
+    "jest": "^24.9.0",
     "eslint": "^6.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2"
-  },
-  "dependencies": {
-    "jest": "^24.9.0"
   }
 }
