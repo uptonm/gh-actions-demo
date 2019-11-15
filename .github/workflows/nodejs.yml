@@ -68,10 +68,11 @@ jobs:
       with:
         fromPhoneNumber: '+1(202) 740-9231'
         toPhoneNumber: '+1(781)5074468'
-        message: $GITHUB_ACTOR started a build with commit $GITHUB_SHA
-        
+        message: ${{ GITHUB_USER }} started a build with commit ${{ COMMIT }}
       env:
         TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
         TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
         TWILIO_API_SECRET: ${{ secrets.TWILIO_API_SECRET }}
+        GITHUB_USER: ${{ GITHUB_ACTOR }}
+        COMMIT: ${{ GITHUB_SHA }}
         CI: true
