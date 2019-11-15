@@ -1,7 +1,7 @@
 {
   "name": "gh-actions-demo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Idk, factorials and shit",
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./",
@@ -13,8 +13,8 @@
     "url": "git+https://github.com/uptonm/gh-actions-demo.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "uptonm - Mike Upton",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/uptonm/gh-actions-demo/issues"
   },
