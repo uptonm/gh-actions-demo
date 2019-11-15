@@ -48,7 +48,7 @@ jobs:
       # Install Dependencies if not Cached
     - name: Install Dependencies
       if: steps.cache.outputs.cache-hit != 'true'
-      run: yarn install
+      run: yarn install --silent
           
       # Run Tests and Generate Coverate Report
     - name: Run tests
