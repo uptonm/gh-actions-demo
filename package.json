@@ -1,5 +1,5 @@
 {
-  "name": "gh-actions-demo",
+  "name": "@uptonm/gh-actions-demo",
   "version": "1.0.0",
   "description": "Idk, factorials and shit",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uptonm/gh-actions-demo.git"
+    "url": "git://github.com/uptonm/gh-actions-demo.git"
   },
   "keywords": [],
   "author": "uptonm - Mike Upton",
@@ -29,5 +29,8 @@
   "jest": {
     "coverageDirectory": "./coverage/",
     "collectCoverage": true
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }
