@@ -64,6 +64,7 @@ jobs:
       # Send SMS to Notify of Status
     - name: 'Sending SMS Notification'
       uses: twilio-labs/actions-sms@v1
+      if: matrix.os == 'ubuntu-latest' && matrix.node_version == '12.x'
       with:
         fromPhoneNumber: '+1(202) 740-9231'
         toPhoneNumber: '+1(781)5074468'
