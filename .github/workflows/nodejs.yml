@@ -68,7 +68,7 @@ jobs:
       with:
         fromPhoneNumber: '+1(202) 740-9231'
         toPhoneNumber: '+1(781)5074468'
-        message: ${{TWILIO_MESSAGE}}
+        message: TWILIO_MESSAGE
         
       env:
         TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
